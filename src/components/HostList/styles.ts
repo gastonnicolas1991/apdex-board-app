@@ -26,4 +26,25 @@ export const Container = styled.div<LayoutMode>`
 
 export const Header = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-family: "HelveticaNeue";
+
+  margin: 20px 30px;
+`;
+
+export const UserInfo = styled.div`
+  display: flex;
+`;
+
+export const UserEmail = styled.div`
+  font-size: 16px;
+  font-family: "HelveticaNeue";
+  margin-right: 20px;
+`;
+
+export const Title = styled.div`
+  font-size: 36px;
+  font-family: "HelveticaNeue-Bold";
 `;

@@ -1,4 +1,11 @@
-import { HostListBase, Header, Container } from "./styles";
+import {
+  HostListBase,
+  Header,
+  Container,
+  UserInfo,
+  Title,
+  UserEmail,
+} from "./styles";
 import { Host, Mode } from "../../domain/type";
 import Card from "../Card";
 import { useState } from "react";
@@ -17,8 +24,14 @@ const HostList = ({ hosts }: HostListProps) => {
   return (
     <HostListBase>
       <Header>
-        <input type="checkbox" onClick={handleClick} value={layoutMode} />
-        <label>{isGrid ? "Show as list" : "Show as grid"}</label>
+        <Title>Apps by Host</Title>
+        <UserInfo>
+          <UserEmail>For user: gaston@dominio.com</UserEmail>
+          <div>
+            <input type="checkbox" onClick={handleClick} value={layoutMode} />
+            <label>{isGrid ? "Show as list" : "Show as grid"}</label>
+          </div>
+        </UserInfo>
       </Header>
       <Container mode={layoutMode}>
         {hosts.map((host) => (
