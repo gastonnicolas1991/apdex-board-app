@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import colors from "../../styles/colors";
-import { TooltipBase } from "../Tooltip/styles";
 
 export const CardBase = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${colors.white};
   padding: 30px;
+  margin: 30px;
+  min-width: 375px;
 `;
 
 export const Title = styled.div`

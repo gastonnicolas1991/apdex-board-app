@@ -1,26 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { getTopFiveApps } from "../../utils/functions";
-import Tooltip from "../Tooltip";
 import { CardBase, Title, Row, Score, AppName } from "./styles";
-
-type AppList = {
-  score: number;
-  appName: string;
-  releaseVersion: number;
-};
+import { App, Host } from "../../domain/type";
 
 interface CardProps {
-  hostName: string;
-  appList: AppList[];
+  host: Host;
 }
 
-const Card = ({ hostName, appList }: CardProps) => {
+const Card = ({ host: { hostName, appList } }: CardProps) => {
   const list = getTopFiveApps(appList);
 
   return (
     <CardBase>
       <Title>{hostName}</Title>
-      {list.map(({ score, appName }: AppList) => (
+      {list.map(({ score, appName }: App) => (
         <Row key={`${score}-${appName}`}>
           <Score>{score}</Score>
           <AppName>{appName}</AppName>
