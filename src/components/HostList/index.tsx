@@ -8,7 +8,7 @@ import {
 } from "./styles";
 import { Host, Mode } from "../../domain/type";
 import Card from "../Card";
-import { useState } from "react";
+import { useState, useId } from "react";
 
 interface HostListProps {
   hosts: Host[];
@@ -17,6 +17,7 @@ interface HostListProps {
 const HostList = ({ hosts }: HostListProps) => {
   const [layoutMode, setLayoutMode] = useState<Mode>("grid");
   const isGrid: boolean = layoutMode === "grid";
+  const idForCard = useId();
 
   const handleClick = () =>
     isGrid ? setLayoutMode("list") : setLayoutMode("grid");
@@ -35,7 +36,7 @@ const HostList = ({ hosts }: HostListProps) => {
       </Header>
       <Container mode={layoutMode}>
         {hosts.map((host) => (
-          <Card host={host} key={`${host.hostName}`} />
+          <Card host={host} key={`${idForCard}-${host.hostName}`} />
         ))}
       </Container>
     </HostListBase>
