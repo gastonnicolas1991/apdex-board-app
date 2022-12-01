@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { Mode } from "../../domain/type";
 import colors from "../../styles/colors";
+import { CardBase } from "../Card/styles";
 
 interface LayoutMode {
   mode: Mode;
@@ -9,6 +10,10 @@ interface LayoutMode {
 const cssListLayoutMixin = css`
   display: flex;
   flex-direction: column;
+
+  ${CardBase} {
+    width: auto;
+  }
 `;
 
 export const HostListBase = styled.div`
@@ -16,6 +21,8 @@ export const HostListBase = styled.div`
   flex-direction: column;
   width: 100%;
   background-color: ${colors.white2};
+  max-width: 840px;
+  padding: 15px;
 `;
 
 export const Container = styled.div<LayoutMode>`

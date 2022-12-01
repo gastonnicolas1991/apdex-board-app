@@ -6,8 +6,8 @@ export const CardBase = styled.div`
   flex-direction: column;
   background-color: ${colors.white};
   padding: 30px;
-  margin: 30px;
-  min-width: 375px;
+  margin: 15px;
+  width: 375px;
 `;
 
 export const Title = styled.div`
@@ -25,7 +25,7 @@ export const Row = styled.div`
 
 export const Score = styled.div`
   color: ${colors.grey};
-  margin-right: 20px;
+  padding-right: 20px;
   opacity: 62%;
   font-family: "HelveticaNeue-Bold";
   line-height: 1.5;
