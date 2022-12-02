@@ -1,12 +1,13 @@
 import HostList from "../src/components/HostList";
 import { fetchHosts } from "../src/redux/slices/appsByHost";
-import hostList from "../src/components/HostList/mock";
-import { useAppDispatch } from "../src/hooks";
+import { Host } from "../src/domain/type";
+import { useAppDispatch, useAppSelector } from "../src/hooks";
 import { Wrapper } from "./styles";
 import { useEffect } from "react";
 
 export default function Home() {
   const dispatch = useAppDispatch();
+  const hostList = useAppSelector((state) => state.appsByHost.data);
 
   useEffect(() => {
     dispatch(fetchHosts());

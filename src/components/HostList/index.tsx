@@ -35,7 +35,7 @@ const HostList = ({ hosts }: HostListProps) => {
         </UserInfo>
       </Header>
       <Container mode={layoutMode}>
-        {hosts.map((host) => (
+        {hosts.map((host: Host) => (
           <Card host={host} key={`${idForCard}-${host.hostName}`} />
         ))}
       </Container>

@@ -23,15 +23,15 @@ describe("Functions: ", () => {
 
     test("receives a list of objects and the number two and should return the first two objects", () => {
       const list = [
-        { score: 66, appName: "Test1" },
-        { score: 98, appName: "Test3" },
-        { score: 77, appName: "Test2" },
+        { score: 66, appName: "Test1", releaseVersion: 2 },
+        { score: 98, appName: "Test3", releaseVersion: 3 },
+        { score: 77, appName: "Test2", releaseVersion: 1 },
       ];
       const result = getFirstNElements(list, 2);
 
       expect(result).toEqual([
-        { score: 66, appName: "Test1" },
-        { score: 98, appName: "Test3" },
+        { score: 66, appName: "Test1", releaseVersion: 2 },
+        { score: 98, appName: "Test3", releaseVersion: 3 },
       ]);
     });
 
@@ -46,30 +46,30 @@ describe("Functions: ", () => {
   describe("sortListByScoring", () => {
     test("receives a list and a comparator function and sort it ASC by scoring", () => {
       const list = [
-        { score: 66, appName: "Test1" },
-        { score: 98, appName: "Test3" },
-        { score: 77, appName: "Test2" },
+        { score: 66, appName: "Test1", releaseVersion: 2 },
+        { score: 98, appName: "Test3", releaseVersion: 2 },
+        { score: 77, appName: "Test2", releaseVersion: 2 },
       ];
       const result = sortListByScoring(list, compareScoring, "asc");
 
       expect(result).toEqual([
-        { score: 66, appName: "Test1" },
-        { score: 77, appName: "Test2" },
-        { score: 98, appName: "Test3" },
+        { score: 66, appName: "Test1", releaseVersion: 2 },
+        { score: 77, appName: "Test2", releaseVersion: 2 },
+        { score: 98, appName: "Test3", releaseVersion: 2 },
       ]);
     });
     test("receives a list and a comparator function and sort it DESC by scoring", () => {
       const list = [
-        { score: 66, appName: "Test1" },
-        { score: 98, appName: "Test3" },
-        { score: 77, appName: "Test2" },
+        { score: 66, appName: "Test1", releaseVersion: 2 },
+        { score: 98, appName: "Test3", releaseVersion: 2 },
+        { score: 77, appName: "Test2", releaseVersion: 2 },
       ];
       const result = sortListByScoring(list, compareScoring, "desc");
 
       expect(result).toEqual([
-        { score: 98, appName: "Test3" },
-        { score: 77, appName: "Test2" },
-        { score: 66, appName: "Test1" },
+        { score: 98, appName: "Test3", releaseVersion: 2 },
+        { score: 77, appName: "Test2", releaseVersion: 2 },
+        { score: 66, appName: "Test1", releaseVersion: 2 },
       ]);
     });
   });
@@ -77,24 +77,24 @@ describe("Functions: ", () => {
   describe("getTopFiveApps", () => {
     test("receives a list a return the top five apps ordered DESC", () => {
       const list = [
-        { score: 12, appName: "a" },
-        { score: 45, appName: "b" },
-        { score: 13, appName: "c" },
-        { score: 78, appName: "d" },
-        { score: 14, appName: "e" },
-        { score: 16, appName: "f" },
-        { score: 25, appName: "g" },
-        { score: 1, appName: "h" },
-        { score: 44, appName: "i" },
+        { score: 12, appName: "a", releaseVersion: 2 },
+        { score: 45, appName: "b", releaseVersion: 2 },
+        { score: 13, appName: "c", releaseVersion: 2 },
+        { score: 78, appName: "d", releaseVersion: 2 },
+        { score: 14, appName: "e", releaseVersion: 2 },
+        { score: 16, appName: "f", releaseVersion: 2 },
+        { score: 25, appName: "g", releaseVersion: 2 },
+        { score: 1, appName: "h", releaseVersion: 2 },
+        { score: 44, appName: "i", releaseVersion: 2 },
       ];
       const result = getTopFiveApps(list);
 
       expect(result).toEqual([
-        { score: 78, appName: "d" },
-        { score: 45, appName: "b" },
-        { score: 44, appName: "i" },
-        { score: 25, appName: "g" },
-        { score: 16, appName: "f" },
+        { score: 78, appName: "d", releaseVersion: 2 },
+        { score: 45, appName: "b", releaseVersion: 2 },
+        { score: 44, appName: "i", releaseVersion: 2 },
+        { score: 25, appName: "g", releaseVersion: 2 },
+        { score: 16, appName: "f", releaseVersion: 2 },
       ]);
     });
   });

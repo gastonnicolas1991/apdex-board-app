@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import colors from "../../styles/colors";
 
 export const ModalBase = styled.div``;
+
 export const ModalOverlay = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;

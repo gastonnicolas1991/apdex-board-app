@@ -10,3 +10,17 @@ export interface Host {
 }
 
 export type Mode = "list" | "grid";
+
+export type AppFromServer = {
+  name: string;
+  contributors: string[];
+  version: number;
+  apdex: number;
+  host: string[];
+};
+
+export interface AppsByHostState {
+  data: Host[];
+  loading: boolean;
+  error: string | unknown;
+}

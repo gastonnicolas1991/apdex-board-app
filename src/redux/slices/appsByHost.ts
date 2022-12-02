@@ -1,13 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import responseMock from "../mock/hosts.json";
-import { Host } from "../../domain/type";
+import { AppsByHostState } from "../../domain/type";
+import { mapFromAppsToHosts } from "../../utils/functions";
 import axios from "axios";
-
-interface AppsByHostState {
-  data: any;
-  loading: boolean;
-  error: string | unknown;
-}
 
 const initialState: AppsByHostState = {
   data: [],
@@ -31,19 +26,14 @@ export const fetchHosts = createAsyncThunk("appsByHost/fetchHosts", () => {
 const appsByHostSlice = createSlice({
   name: "appsByHost",
   initialState: initialState,
-  reducers: {
-    setAppsByHost(state, param) {
-      const { payload } = param;
-      state.data = payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchHosts.pending, (state) => {
       state.loading = true;
     });
     builder.addCase(fetchHosts.fulfilled, (state, action) => {
       state.loading = false;
-      state.data = action.payload;
+      state.data = mapFromAppsToHosts(responseMock);
       state.error = "";
     });
     builder.addCase(fetchHosts.rejected, (state, action) => {
@@ -53,7 +43,5 @@ const appsByHostSlice = createSlice({
     });
   },
 });
-
-export const { setAppsByHost } = appsByHostSlice.actions;
 
 export default appsByHostSlice.reducer;
