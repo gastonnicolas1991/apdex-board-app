@@ -131,6 +131,28 @@ How did I worked on this challenge?
 6) I developed the algorithm for mapping from AWS endpoint to client side.
 7) I deleted unused files, made typing corrections and worked on this README.
 
+## 🤖	Algorithm
+
+### mapFromAppsToHosts
+
+
+**Big-O notation**: O(N^2) - Quadratic-Time Algorithm
+ For each new app, there will be n more iterations (one for each host inside that app).
+
+
+
+- This core function maps from server to client side structure.
+- I decided to do a nested iteration (like a matrix) and to create a Map structure to be able to access it directly when checking for existence of hosts.
+- After the operation, it will be converted into an Array to easily manipulate this (to take advantage of the immutable methods).
+
+
+🚨 If I had to work with a huge list of HOST, I would consider working with a final Map instead of an array, for direct access.
+
+### addAppToHosts and removeAppFromHosts
+
+- These methods adds/removes an app to/from each host.
+- There is NO implementation to use this methods in this deliver. 
+
 
 ## Notes 
 
@@ -140,3 +162,4 @@ How did I worked on this challenge?
 - I did not integrate any SSR feature, but I consider that It could be a better approach to do the data fetching on server.
 - Even if it was required to work with the endpoint on the client side, I would have consider to make the whole transformation on backend side and delivering a more specific response to the client :).
 - I tried to commit each "piece of work", but in a real enviroment i would be even more specific and I would also work with branches instead of pushing directly to master of course.
+- The loading spinner is missing for timing reasons (even if is not that difficult).
