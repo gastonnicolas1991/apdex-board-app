@@ -36,7 +36,7 @@ export const Header = styled.div`
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
-  font-family: "HelveticaNeue";
+  font-family: "Helvetica Neue";
 
   margin: 20px 30px;
 `;
@@ -47,11 +47,12 @@ export const UserInfo = styled.div`
 
 export const UserEmail = styled.div`
   font-size: 16px;
-  font-family: "HelveticaNeue";
+  font-family: "Helvetica Neue";
   margin-right: 20px;
 `;
 
 export const Title = styled.div`
   font-size: 36px;
-  font-family: "HelveticaNeue-Bold";
+  font-family: "Helvetica Neue";
+  font-weight: 900;
 `;

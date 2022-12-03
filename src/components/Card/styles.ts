@@ -13,7 +13,8 @@ export const CardBase = styled.div`
 export const Title = styled.div`
   color: ${colors.black} 100%;
   font-size: 16px;
-  font-family: "HelveticaNeue-Bold";
+  font-family: "Helvetica Neue";
+  font-weight: 900;
   line-height: 1.2;
   margin-bottom: 23px;
 `;
@@ -27,14 +28,16 @@ export const Score = styled.div`
   color: ${colors.grey};
   padding-right: 20px;
   opacity: 62%;
-  font-family: "HelveticaNeue-Bold";
+  font-family: "Helvetica Neue";
+  font-weight: 900;
   line-height: 1.5;
   font-size: 13px;
+  min-width: 40px;
 `;
 
 export const AppName = styled.div`
   color: ${colors.grey};
-  font-family: "HelveticaNeue";
+  font-family: "Helvetica Neue";
   line-height: 1.2;
   font-size: 16px;
 

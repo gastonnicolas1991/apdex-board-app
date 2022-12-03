@@ -2,6 +2,8 @@
   "name": "apdex-board",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
+  "description": "This is a simple Nextjs web application that fetches a list of Apps from an AWS endpoint and shows a list of Hosts where those apps are deployed at",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

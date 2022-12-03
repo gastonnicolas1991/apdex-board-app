@@ -3,6 +3,7 @@ import {
   sortListByScoring,
   compareScoring,
   getTopFiveApps,
+  mapFromAppsToHosts,
 } from "./functions";
 
 describe("Functions: ", () => {
@@ -95,6 +96,56 @@ describe("Functions: ", () => {
         { score: 44, appName: "i", releaseVersion: 2 },
         { score: 25, appName: "g", releaseVersion: 2 },
         { score: 16, appName: "f", releaseVersion: 2 },
+      ]);
+    });
+  });
+
+  describe("mapFromAppsToHosts", () => {
+    test("receives a list of apps and maps it to a list of hosts", () => {
+      const list = [
+        {
+          name: "Small Fresh Pants - Kautzer - Boyer, and Sons",
+          contributors: ["Edwin Reinger"],
+          version: 7,
+          apdex: 68,
+          host: ["7e6272f7-098e.dakota.biz", "9a450527-cdd9.kareem.info"],
+        },
+        {
+          name: "Ergonomic Wooden Soap - Lemke and Sons, Inc",
+          contributors: ["Miss Moises Walter", "Caroline Murazik"],
+          version: 2,
+          apdex: 61,
+          host: ["7e6272f7-098e.dakota.biz"],
+        },
+      ];
+      const result = mapFromAppsToHosts(list);
+
+      expect(result).toEqual([
+        {
+          hostName: "9a450527-cdd9.kareem.info",
+          appList: [
+            {
+              score: 68,
+              appName: "Small Fresh Pants - Kautzer - Boyer, and Sons",
+              releaseVersion: 7,
+            },
+          ],
+        },
+        {
+          hostName: "7e6272f7-098e.dakota.biz",
+          appList: [
+            {
+              score: 68,
+              appName: "Small Fresh Pants - Kautzer - Boyer, and Sons",
+              releaseVersion: 7,
+            },
+            {
+              score: 61,
+              appName: "Ergonomic Wooden Soap - Lemke and Sons, Inc",
+              releaseVersion: 2,
+            },
+          ],
+        },
       ]);
     });
   });

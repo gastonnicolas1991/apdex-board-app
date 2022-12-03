@@ -35,6 +35,7 @@ export const getTopAppsByHost = (
 
 export const mapFromAppsToHosts = (data: AppFromServer[]): Host[] => {
   let mappedMap = new Map();
+
   data.forEach((app) => {
     app.host.forEach((host) => {
       const element = mappedMap.get(host);
