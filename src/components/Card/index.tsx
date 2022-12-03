@@ -24,10 +24,11 @@ const Card = ({ host: { hostName, appList } }: CardProps) => {
   return (
     <CardBase>
       <Title>{hostName}</Title>
-      {list.map(({ score, appName, releaseVersion }: App) => (
+      {list.map(({ score, appName, releaseVersion }: App, index) => (
         <Row
           key={`${idForApp}-${appName}`}
           onClick={handleClick(releaseVersion)}
+          data-testid={`${index}-${appName}`}
         >
           <Score>{score}</Score>
           <AppName>{appName}</AppName>

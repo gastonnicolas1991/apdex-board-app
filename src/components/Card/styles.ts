@@ -10,13 +10,14 @@ export const CardBase = styled.div`
   width: 375px;
 `;
 
-export const Title = styled.div`
+export const Title = styled.h3`
   color: ${colors.black} 100%;
   font-size: 16px;
   font-family: "Helvetica Neue";
   font-weight: 900;
   line-height: 1.2;
   margin-bottom: 23px;
+  margin-top: 0;
 `;
 
 export const Row = styled.div`

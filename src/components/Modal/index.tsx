@@ -16,14 +16,14 @@ const Modal = ({ setIsOpen, content }: ModalProps) => {
   const handleClick = () => setIsOpen(false);
 
   return (
-    <ModalBase>
+    <ModalBase data-testid="action-modal">
       <ModalOverlay onClick={handleClick} />
       <ModalWrapper>
         <ModalContent>
           <ModalHeader>
             <TitleHeader>Details</TitleHeader>
           </ModalHeader>
-          <p>{content}</p>
+          <p role="content">{content}</p>
         </ModalContent>
       </ModalWrapper>
     </ModalBase>

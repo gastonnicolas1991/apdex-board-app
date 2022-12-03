@@ -43,7 +43,7 @@ export const ModalHeader = styled.div`
   overflow: hidden;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  border-bottom: 1px solid ${colors.grey2}; ;
+  border-bottom: 1px solid ${colors.grey2};
 `;
 
 export const TitleHeader = styled.h5`

@@ -1,7 +1,4 @@
 import { AppFromServer, Host, App } from "../domain/type";
-interface Scoring {
-  score: number;
-}
 
 export const getFirstNElements = <T>(list: T[], n: number): T[] =>
   list.slice(0, n);
