@@ -8,11 +8,22 @@ This is a simple Nextjs web application that fetches a list of Apps from an AWS 
 git clone git@github.com:gastonnicolas1991/apdex-board-app.git
 cd apdex-board-app
 yarn install
+```
+**Production mode**:
+
+```
+yarn build
+yarn start
+```
+**Development mode**:
+
+```
 yarn dev
 ```
 The application will be running on: http://localhost:3000
 
-⚠ Check if  NEXT_PUBLIC_API_ENABLE='ON' for API data. If any problem, change to 'OFF' for working with the local copy.
+- ⚠ Check if  NEXT_PUBLIC_API_ENABLE='ON' for API data. If any problem, change to 'OFF' for working with the local copy.
+- ⚠ Due to the CORS problem while fetching the endpoint, you will PROBABLY need a CORS plugin for the browser or working locally (I need to keep digging into solving it).
 
 ## 🗄 ENV
 
@@ -137,7 +148,7 @@ How did I worked on this challenge?
 
 
 **Big-O notation**: O(N^2) - Quadratic-Time Algorithm
- For each new app, there will be n more iterations (one for each host inside that app).
+ - For each new app, there will be n more iterations (one for each host inside that app).
 
 
 
