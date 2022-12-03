@@ -4,6 +4,8 @@ import {
   compareScoring,
   getTopFiveApps,
   mapFromAppsToHosts,
+  addAppToHosts,
+  removeAppFromHosts,
 } from "./functions";
 
 describe("Functions: ", () => {
@@ -143,6 +145,78 @@ describe("Functions: ", () => {
               score: 61,
               appName: "Ergonomic Wooden Soap - Lemke and Sons, Inc",
               releaseVersion: 2,
+            },
+          ],
+        },
+      ]);
+    });
+  });
+
+  describe("addAppToHosts", () => {
+    test("receives a list of hosts and an app and return the list with the app added to each host", () => {
+      const list = [
+        {
+          hostName: "9a450527-cdd9.kareem.info",
+          appList: [
+            {
+              score: 68,
+              appName: "Small Fresh Pants - Kautzer - Boyer, and Sons",
+              releaseVersion: 7,
+            },
+          ],
+        },
+      ];
+      const result = addAppToHosts(list, {
+        score: 100,
+        appName: "New app",
+        releaseVersion: 4,
+      });
+
+      expect(result).toEqual([
+        {
+          hostName: "9a450527-cdd9.kareem.info",
+          appList: [
+            {
+              score: 68,
+              appName: "Small Fresh Pants - Kautzer - Boyer, and Sons",
+              releaseVersion: 7,
+            },
+            { score: 100, appName: "New app", releaseVersion: 4 },
+          ],
+        },
+      ]);
+    });
+  });
+
+  describe("removeAppFromHosts", () => {
+    test("receives a list of hosts and an app and return the list WITHOUT the app in each host", () => {
+      const list = [
+        {
+          hostName: "9a450527-cdd9.kareem.info",
+          appList: [
+            {
+              score: 68,
+              appName: "Small Fresh Pants - Kautzer - Boyer, and Sons",
+              releaseVersion: 7,
+            },
+            { score: 100, appName: "New app", releaseVersion: 4 },
+          ],
+        },
+      ];
+      const result = removeAppFromHosts(list, {
+        score: 100,
+        appName: "New app",
+        releaseVersion: 4,
+      });
+
+      expect(result).toEqual([
+        {
+          hostName: "9a450527-cdd9.kareem.info",
+          appList: [
+            {
+              score: 68,
+              appName: "Small Fresh Pants - Kautzer - Boyer, and Sons",
+              releaseVersion: 7,
             },
           ],
         },

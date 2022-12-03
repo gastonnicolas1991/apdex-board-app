@@ -1,3 +1,4 @@
+import { hostname } from "os";
 import { AppFromServer, Host, App } from "../domain/type";
 
 export const getFirstNElements = <T>(list: T[], n: number): T[] =>
@@ -65,3 +66,15 @@ export const mapFromAppsToHosts = (data: AppFromServer[]): Host[] => {
 
   return list;
 };
+
+export const addAppToHosts = (list: Host[], app: App): Host[] =>
+  list.map(({ hostName, appList }) => ({
+    hostName,
+    appList: [...appList, app],
+  }));
+
+export const removeAppFromHosts = (list: Host[], app: App): Host[] =>
+  list.map(({ hostName, appList }) => ({
+    hostName,
+    appList: appList.filter((appInList) => appInList.appName !== app.appName),
+  }));
