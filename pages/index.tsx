@@ -1,8 +1,7 @@
 import HostList from "../src/components/HostList";
 import { fetchHosts } from "../src/redux/slices/appsByHost";
-import { Host } from "../src/domain/type";
 import { useAppDispatch, useAppSelector } from "../src/hooks";
-import { Wrapper } from "./styles";
+import { Wrapper } from "../styles/layoutPage";
 import { useEffect } from "react";
 
 export default function Home() {
